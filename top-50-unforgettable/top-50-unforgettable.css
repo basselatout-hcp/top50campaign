@@ -221,7 +221,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     color: var(--ink-900);
     margin-bottom: 18px;
 }
-.positioning__body { color: var(--ink-700); font-size: 1.2rem; line-height: 1.5; max-width: 470px; }
+.positioning__body { color: var(--ink-700); font-size: 1.4rem; line-height: 1.5; max-width: 360px; }
 .positioning__media img { border-radius: 24px; width: 100%; height: auto; }
 
 .how { margin-top: 72px; }
