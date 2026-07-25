@@ -220,7 +220,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     margin-bottom: 18px;
 }
 .positioning__body { color: var(--ink-700); font-size: 1.2rem; line-height: 1.5; max-width: 470px; }
-.positioning__media img { border-radius: 4px; width: 100%; height: auto; }
+.positioning__media img { border-radius: 24px; width: 100%; height: auto; }
 
 .how { margin-top: 72px; }
 .how__title {
@@ -266,7 +266,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     margin-bottom: 34px;
 }
 .eligibility__top { display: grid; grid-template-columns: 300px 1fr; gap: 44px; align-items: start; margin-bottom: 60px; }
-.eligibility__media img { border-radius: 6px; width: 100%; height: auto; }
+.eligibility__media img { border-radius: 24px; width: 100%; height: auto; }
 .eligibility__body { font-size: 1.2rem; line-height: 1.6; margin-bottom: 18px; }
 .eligibility__fine { font-size: .78rem; color: #b9c6d8; margin-top: 10px; }
 
