@@ -48,9 +48,10 @@
     --ink-900:  #14243b;        /* headings on light */
     --ink-700:  #33414f;        /* body on light */
     --white:    #ffffff;
-    --dark:     #13181b;        /* near-black: nav + footer (sampled) */
-    --footer-bg:#13181b;
+    --dark:     #13181a;        /* HCP Carbon — nav + footer (Figma token) */
+    --footer-bg:#13181a;
     --footer-legal:#0f1316;
+    --footer-link:#64c7ff;      /* HCP primary — contact links (Figma token) */
 
     /* Typography — PLACEHOLDER fallbacks until brand fonts are supplied.
        Swap these @font-face-backed families in once .woff2 files arrive. */
@@ -336,7 +337,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- FOOTER ---------- */
 .footer { background: var(--footer-bg); color: #c7ccd2; }
-.footer__inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; padding-top: 48px; padding-bottom: 40px; }
+.footer__inner { display: flex; justify-content: space-between; gap: 40px; max-width: 1360px; padding: 48px 40px 40px; }
 .footer__wordmark { display: inline-block; margin-bottom: 14px; }
 .footer__wordmark img { height: 30px; width: auto; }
 .footer__tagline { font-size: .82rem; color: #9aa1a9; margin-bottom: 22px; }
@@ -345,14 +346,15 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .footer__apps img { height: 38px; width: auto; }
 .footer__ratings { height: 42px !important; }
 .footer__contact { text-align: left; }
-.footer__label { text-transform: uppercase; font-size: .72rem; letter-spacing: .1em; color: #9aa1a9; margin-bottom: 12px; }
-.footer__label--spaced { margin-top: 28px; }
+.footer__label { text-transform: uppercase; font-size: .78rem; letter-spacing: .08em; font-weight: 600; color: #fafafa; margin-bottom: 18px; }
+.footer__label--spaced { margin-top: 34px; }
 .footer__socials { display: flex; gap: 12px; margin-bottom: 8px; }
-.footer__socials img { width: 22px; height: 22px; }
-.footer__contact-line { font-size: .9rem; }
-.footer__contact-line a { color: var(--blue-400); text-decoration: none; }
+.footer__socials img { width: 30px; height: 30px; }
+.footer__contact-line { font-size: 1rem; margin-bottom: 16px; }
+.footer__contact-line a { color: var(--footer-link); font-weight: 700; text-decoration: none; }
 .footer__contact-line a:hover { text-decoration: underline; }
 .footer__legal { border-top: 1px solid rgba(255,255,255,.1); padding: 16px 0; }
+.footer__legal .container { max-width: 1360px; padding-left: 40px; padding-right: 40px; }
 .footer__legal p { font-size: .72rem; color: #7c828a; }
 .footer__legal a { color: #7c828a; text-decoration: underline; }
 
@@ -413,6 +415,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     .cta-banner__inner { flex-direction: column; text-align: center; }
     .cta-banner__copy { flex-direction: column; text-align: center; gap: 10px; }
 
-    .footer__inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer__inner { flex-direction: column; gap: 32px; padding-left: 24px; padding-right: 24px; }
+    .footer__legal .container { padding-left: 24px; padding-right: 24px; }
     .footer__legal p { line-height: 1.8; }
 }
