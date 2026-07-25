@@ -37,19 +37,20 @@
 :root {
     /* Brand palette (sampled from wireframe — refine against Figma tokens) */
     --navy-900: #0a2140;        /* hero background base */
-    --navy-800: #0d2e57;        /* eligibility section */
+    --navy-800: #013b6d;        /* eligibility + CTA banner (sampled from wireframe) */
     --navy-700: #123a6b;
-    --blue-500: #1f6fc4;        /* accents: step numbers, eyebrows, links */
+    --blue-500: #0065c1;        /* accents: step numbers, tiles, eyebrows */
     --blue-400: #2b81d8;
-    --orange:   #f4881f;        /* primary CTA */
-    --orange-600:#e07a12;       /* CTA hover */
-    --gray-050: #eef1f4;        /* positioning bg */
-    --gray-100: #cfd7de;        /* faq section bg */
+    --orange:   #ff9a24;        /* primary CTA (sampled from wireframe) */
+    --orange-600:#ec8613;       /* CTA hover */
+    --gray-050: #f0f4f7;        /* positioning bg */
+    --gray-100: #c3d0d6;        /* faq section bg */
     --ink-900:  #14243b;        /* headings on light */
     --ink-700:  #33414f;        /* body on light */
     --white:    #ffffff;
-    --footer-bg:#1b1b1f;
-    --footer-legal:#111114;
+    --dark:     #13181b;        /* near-black: nav + footer (sampled) */
+    --footer-bg:#13181b;
+    --footer-legal:#0f1316;
 
     /* Typography — PLACEHOLDER fallbacks until brand fonts are supplied.
        Swap these @font-face-backed families in once .woff2 files arrive. */
@@ -115,7 +116,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #05152b;
+    background: var(--dark);
     height: var(--nav-h);
     display: flex;
     align-items: center;
