@@ -12,21 +12,25 @@
     font-style: normal;
     font-display: swap;
 }
-/* Body / heading sans — Sofia Sans (free stand-in for Sofia Pro).
-   Swap for the exact brand sans if supplied. */
+/* Body / heading sans — Manrope (matched to the wireframe body font). */
 @font-face {
     font-family: 'T50 Sans';
-    src: url('assets/fonts/sofia-400.woff2') format('woff2');
+    src: url('assets/fonts/manrope-400.woff2') format('woff2');
     font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
     font-family: 'T50 Sans';
-    src: url('assets/fonts/sofia-700.woff2') format('woff2');
+    src: url('assets/fonts/manrope-600.woff2') format('woff2');
+    font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'T50 Sans';
+    src: url('assets/fonts/manrope-700.woff2') format('woff2');
     font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
     font-family: 'T50 Sans';
-    src: url('assets/fonts/sofia-800.woff2') format('woff2');
+    src: url('assets/fonts/manrope-800.woff2') format('woff2');
     font-weight: 800; font-style: normal; font-display: swap;
 }
 
@@ -278,7 +282,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     border-radius: 12px; margin-bottom: 16px;
 }
 .prize__icon img { width: 34px; height: 34px; }
-.prize__name { font-size: 1.05rem; margin-bottom: 8px; font-family: var(--font-head); }
+.prize__name { font-size: 1.05rem; margin-bottom: 8px; font-family: var(--font-head); font-weight: 800; }
 .prize__body { font-size: .86rem; color: #cdd8e6; }
 
 /* ---------- FAQ ---------- */
