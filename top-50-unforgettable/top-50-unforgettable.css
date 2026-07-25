@@ -171,19 +171,19 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     letter-spacing: .02em;
 }
 .countdown__label {
-    text-transform: uppercase;
-    font-size: .72rem;
-    letter-spacing: .12em;
-    margin-top: 8px;
-    color: #cdd8e6;
+    font-size: 1rem;
+    letter-spacing: .01em;
+    margin-top: 10px;
+    color: #fafafa;
+    font-weight: 600;
 }
-.countdown__sep { width: 1px; align-self: flex-start; background: rgba(255,255,255,.3); margin-top: 4px; height: 52px; }
+.countdown__sep { width: 1px; align-self: flex-start; background: rgba(255,255,255,.35); margin-top: 4px; height: 52px; }
 .hero__deadline {
-    margin-top: 18px;
-    font-size: .72rem;
-    letter-spacing: .12em;
+    margin-top: 20px;
+    font-size: .9rem;
+    letter-spacing: .1em;
     font-weight: 700;
-    color: #cdd8e6;
+    color: #fafafa;
     text-transform: uppercase;
 }
 .hero__eyebrow {
@@ -396,7 +396,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     .countdown { gap: 6px; }
     .countdown__unit { min-width: 40px; }
     .countdown__num { font-size: 1.9rem; }
-    .countdown__label { font-size: .58rem; letter-spacing: .06em; }
+    .countdown__label { font-size: .8rem; letter-spacing: .01em; }
     .countdown__sep { height: 40px; }
 
     .positioning, .eligibility, .faq { padding: 44px 0; }
