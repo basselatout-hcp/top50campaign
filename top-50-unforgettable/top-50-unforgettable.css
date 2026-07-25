@@ -337,7 +337,8 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- FOOTER ---------- */
 .footer { background: var(--footer-bg); color: #c7ccd2; }
 .footer__inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; padding-top: 48px; padding-bottom: 40px; }
-.footer__wordmark { font-size: 1.6rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.footer__wordmark { display: inline-block; margin-bottom: 14px; }
+.footer__wordmark img { height: 30px; width: auto; }
 .footer__tagline { font-size: .82rem; color: #9aa1a9; margin-bottom: 22px; }
 .footer__champion { margin-bottom: 22px; height: 62px; width: auto; }
 .footer__apps { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
