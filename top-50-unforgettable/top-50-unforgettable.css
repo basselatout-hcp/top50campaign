@@ -41,7 +41,7 @@
     --navy-700: #123a6b;
     --blue-500: #0065c1;        /* accents: step numbers, tiles, eyebrows */
     --blue-400: #2b81d8;
-    --orange:   #ff9a24;        /* primary CTA (sampled from wireframe) */
+    --orange:   #ff9b24;        /* HCP brand orange (official token) */
     --orange-600:#ec8613;       /* CTA hover */
     --gray-050: #f0f4f7;        /* positioning bg */
     --gray-100: #c3d0d6;        /* faq section bg */
@@ -140,8 +140,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- HERO ---------- */
 .hero {
     background: var(--navy-900) center/cover no-repeat;
-    background-image: image-set(url('assets/hero/hero-desktop.jpg') 1x);
-    background-image: url('assets/hero/hero-desktop.jpg');
+    background-image: url('assets/hero/hero-desktop.webp');
     color: var(--white);
 }
 .hero__inner {
@@ -363,7 +362,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
    RESPONSIVE — TABLET  (≤ 1024px)
    ========================================================= */
 @media (max-width: 1024px) {
-    .hero { background-image: url('assets/hero/hero-tablet.jpg'); }
+    .hero { background-image: url('assets/hero/hero-tablet.webp'); }
     .hero__inner { grid-template-columns: 1fr; gap: 28px; padding-top: 40px; }
     .hero__right { max-width: none; text-align: center; margin: 0 auto; }
     .hero__headline { font-size: 3rem; }
@@ -385,7 +384,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
    RESPONSIVE — MOBILE  (≤ 600px)
    ========================================================= */
 @media (max-width: 600px) {
-    .hero { background-image: url('assets/hero/hero-mobile.jpg'); }
+    .hero { background-image: url('assets/hero/hero-mobile.webp'); }
     .nav__logo--full { display: none; }
     .nav__logo--icon { display: block; }
     .nav__status { display: none; }
