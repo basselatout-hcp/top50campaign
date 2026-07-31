@@ -3,35 +3,45 @@
    Plain CSS, mobile-first, no build step.
    ========================================================= */
 
-/* Brand display font — Headline Gothic (official, from brand kit).
+/* Fonts self-hosted in assets/fonts. Family names and roles match the Trades
+   Thursday hub page so the two campaign pages share one type system:
+   Headline Gothic ATF = display, Manrope = headings + UI labels, Open Sans = body copy. */
+
+/* Brand display font — Headline Gothic ATF (official, from brand kit).
    Athletic condensed caps face — hero headline + countdown only. */
 @font-face {
-    font-family: 'T50 Display';
+    font-family: 'Headline Gothic ATF';
     src: url('assets/fonts/headline-regular.otf') format('opentype');
     font-weight: 400 900;
     font-style: normal;
     font-display: swap;
 }
-/* Body / heading sans — Manrope (matched to the wireframe body font). */
+/* Heading / UI-label sans — Manrope. */
 @font-face {
-    font-family: 'T50 Sans';
+    font-family: 'Manrope';
     src: url('assets/fonts/manrope-400.woff2') format('woff2');
     font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
-    font-family: 'T50 Sans';
+    font-family: 'Manrope';
     src: url('assets/fonts/manrope-600.woff2') format('woff2');
     font-weight: 600; font-style: normal; font-display: swap;
 }
 @font-face {
-    font-family: 'T50 Sans';
+    font-family: 'Manrope';
     src: url('assets/fonts/manrope-700.woff2') format('woff2');
     font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
-    font-family: 'T50 Sans';
+    font-family: 'Manrope';
     src: url('assets/fonts/manrope-800.woff2') format('woff2');
     font-weight: 800; font-style: normal; font-display: swap;
+}
+/* Body copy sans — Open Sans (variable, latin subset). */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('assets/fonts/open-sans-latin.woff2') format('woff2');
+    font-weight: 300 800; font-style: normal; font-display: swap;
 }
 
 :root {
@@ -42,7 +52,7 @@
     --blue-500: #0065c1;        /* accents: step numbers, tiles, eyebrows */
     --blue-400: #2b81d8;
     --orange:   #ff9b24;        /* HCP brand orange (official token) */
-    --orange-600:#ec8613;       /* CTA hover */
+    --orange-hover:#ffab45;     /* CTA hover — lightens, matching Trades Thursday */
     --gray-050: #f0f4f7;        /* positioning bg */
     --gray-100: #c3d0d6;        /* faq section bg */
     --ink-900:  #14243b;        /* headings on light */
@@ -53,11 +63,10 @@
     --footer-legal:#0f1316;
     --footer-link:#64c7ff;      /* HCP primary — contact links (Figma token) */
 
-    /* Typography — PLACEHOLDER fallbacks until brand fonts are supplied.
-       Swap these @font-face-backed families in once .woff2 files arrive. */
-    --font-display: 'T50 Display', 'Oswald', 'Arial Narrow', 'Impact', sans-serif;
-    --font-head: 'T50 Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --font-body: 'T50 Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    /* Typography — stacks match the Trades Thursday hub page exactly. */
+    --font-display: 'Headline Gothic ATF', system-ui, sans-serif;
+    --font-head: 'Manrope', system-ui, -apple-system, sans-serif;   /* headings + UI labels */
+    --font-body: 'Open Sans', system-ui, -apple-system, sans-serif; /* running body copy */
 
     --maxw: 1120px;
     --nav-h: 52px;
@@ -72,7 +81,7 @@ body {
     font-family: var(--font-body);
     color: var(--ink-900);
     background: var(--white);
-    line-height: 1.5;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
@@ -80,6 +89,7 @@ a { color: inherit; }
 h1, h2, h3, h4 { margin: 0; }
 p { margin: 0; }
 ol, ul { margin: 0; padding: 0; list-style: none; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; border-radius: 4px; }
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
@@ -95,22 +105,30 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .eyebrow--orange { color: var(--orange); }
 
 /* ---------- Buttons ---------- */
+/* Ported from the Trades Thursday hub page: Manrope label, carbon ink on orange,
+   hover LIGHTENS the orange (it used to darken) and lifts 1px, active settles back. */
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: .4em;
-    font-family: var(--font-body);
+    font-family: var(--font-head);
     font-weight: 700;
+    font-size: .95rem;
+    line-height: 1;
     text-decoration: none;
-    border-radius: 999px;
+    border: 0;
+    border-radius: 100px;
+    padding: 14px 24px;
     cursor: pointer;
-    transition: background .15s ease, transform .15s ease;
+    transition: transform .12s ease, background .15s ease, box-shadow .15s ease;
     white-space: nowrap;
 }
-.btn--primary { background: var(--orange); color: var(--navy-900); }
-.btn--primary:hover { background: var(--orange-600); transform: translateY(-1px); }
-.btn--sm { font-size: .82rem; padding: 8px 16px; }
-.btn--lg { font-size: 1.05rem; padding: 14px 28px; }
+.btn--primary { background: var(--orange); color: var(--dark); }
+.btn--primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
+.btn--primary:active { transform: translateY(0); }
+.btn--sm { font-size: .9rem; padding: 10px 22px; }
+.btn--lg { font-size: 1.08rem; padding: 18px 36px; }
 
 /* ---------- NAV ---------- */
 .nav {
@@ -154,31 +172,42 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 }
 .hero__left { text-align: center; min-width: 0; }
 .hero__lockup { width: 480px; max-width: 100%; margin: 0 auto 28px; height: auto; }
+/* Countdown — ported from the Trades Thursday hub page: compact row, full-height
+   hairline dividers between units (no standalone separator bars), display-face
+   numerals at weight 400, small labels beneath. Width matches the 480px lockup
+   above it so the clock centres directly under the logo. */
 .countdown {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 22px;
+    width: min(100%, 480px);
+    margin-inline: auto;
+    text-align: center;
 }
-.countdown__unit { display: flex; flex-direction: column; align-items: center; min-width: 64px; }
+.countdown__clock { display: inline-flex; align-items: flex-start; }
+.countdown__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 clamp(14px, 2.2vw, 28px);
+    border-left: 1px solid rgba(255,255,255,.28);
+}
+.countdown__unit:first-child { border-left: 0; padding-left: 0; }
 .countdown__num {
     font-family: var(--font-display);
-    font-size: 3.3rem;
+    font-weight: 400;
+    font-size: clamp(2.2rem, 4vw, 3.1rem);
     line-height: 1;
     color: var(--orange);
-    font-weight: 700;
-    letter-spacing: .02em;
+    font-variant-numeric: tabular-nums;
 }
 .countdown__label {
-    font-size: 1rem;
-    letter-spacing: .01em;
-    margin-top: 10px;
-    color: #fafafa;
+    font-family: var(--font-head);
     font-weight: 600;
+    font-size: clamp(.7rem, 1vw, .85rem);
+    color: rgba(255,255,255,.82);
+    margin-top: 9px;
 }
-.countdown__sep { width: 1px; align-self: flex-start; background: rgba(255,255,255,.35); margin-top: 4px; height: 52px; }
 .hero__deadline {
     margin-top: 20px;
+    font-family: var(--font-head);
     font-size: .9rem;
     letter-spacing: .1em;
     font-weight: 700;
@@ -186,6 +215,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     text-transform: uppercase;
 }
 .hero__eyebrow {
+    font-family: var(--font-head);
     color: var(--orange);
     text-transform: uppercase;
     font-weight: 700;
@@ -194,12 +224,17 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     line-height: 1.35;
     margin-bottom: 16px;
 }
+/* Fluid clamp scale, matching how the Trades Thursday hero H1 scales. Capped at
+   4.5rem rather than TT's 6rem because this headline is a longer sentence in a
+   narrower column — the cap keeps the desktop line count intact.
+   text-wrap:balance evens the three lines out (TT gets the same effect from an
+   explicit <br>, which would force bad breaks on a sentence this long). */
 .hero__headline {
     font-family: var(--font-display);
     text-transform: uppercase;
-    font-size: 4.5rem;
-    line-height: .95;
-    letter-spacing: .01em;
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    line-height: 1.02;
+    text-wrap: balance;
     margin-bottom: 30px;
 }
 .hero__right { max-width: 600px; min-width: 0; }
@@ -212,11 +247,14 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     gap: 48px;
     align-items: start;
 }
+/* Section headings all share one fluid scale, matching .section-title on the
+   Trades Thursday hub page (they used to be three different fixed sizes). */
 .positioning__headline {
     font-family: var(--font-head);
     font-weight: 800;
-    font-size: 2.4rem;
-    line-height: 1.08;
+    font-size: clamp(1.75rem, 3.6vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
     color: var(--ink-900);
     margin-bottom: 18px;
 }
@@ -228,7 +266,9 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     font-family: var(--font-head);
     font-weight: 800;
     text-align: center;
-    font-size: 2.1rem;
+    font-size: clamp(1.75rem, 3.6vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
     margin-bottom: 44px;
     color: var(--ink-900);
 }
@@ -263,7 +303,9 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .eligibility__headline {
     font-family: var(--font-head);
     font-weight: 800;
-    font-size: 2.4rem;
+    font-size: clamp(1.75rem, 3.6vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
     margin-bottom: 34px;
 }
 .eligibility__top { display: grid; grid-template-columns: 300px 1fr; gap: 44px; align-items: start; margin-bottom: 60px; }
@@ -272,11 +314,11 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .eligibility__copy .link-arrow { font-size: 1.1rem; }
 .eligibility__fine { font-size: .82rem; color: #b9c6d8; margin-top: 12px; }
 
-.link-arrow { color: var(--orange); font-weight: 700; text-decoration: none; }
+.link-arrow { font-family: var(--font-head); color: var(--orange); font-weight: 700; text-decoration: none; }
 .link-arrow:hover { text-decoration: underline; }
 .link-arrow--center { display: block; text-align: center; margin-top: 14px; }
 
-.prizes__title { font-family: var(--font-head); font-weight: 800; text-align: center; font-size: 2.1rem; margin-bottom: 40px; }
+.prizes__title { font-family: var(--font-head); font-weight: 800; text-align: center; font-size: clamp(1.75rem, 3.6vw, 2.6rem); line-height: 1.15; letter-spacing: -.01em; margin-bottom: 40px; }
 .prizes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
 .prize { text-align: center; }
 .prize__icon { display: inline-flex; margin-bottom: 18px; }
@@ -287,7 +329,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- FAQ ---------- */
 .faq { background: var(--gray-100); padding: 60px 0 72px; }
 .faq__eyebrow { text-align: center; color: #004a8f; } /* darker blue for AA contrast on FAQ gray */
-.faq__title { font-family: var(--font-head); font-weight: 800; text-align: center; font-size: 2.6rem; color: var(--ink-900); }
+.faq__title { font-family: var(--font-head); font-weight: 800; text-align: center; font-size: clamp(1.75rem, 3.6vw, 2.6rem); line-height: 1.15; letter-spacing: -.01em; color: var(--ink-900); }
 .faq__subtitle { text-align: center; color: var(--ink-700); font-size: 1.15rem; margin: 10px 0 40px; }
 .faq__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .faq__item {
@@ -306,6 +348,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     cursor: pointer;
     list-style: none;
     color: var(--blue-500);
+    font-family: var(--font-head);
     font-weight: 800;
     font-size: 1.18rem;
     line-height: 1.25;
@@ -346,12 +389,16 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .footer__apps img { height: 38px; width: auto; }
 .footer__ratings { height: 42px !important; }
 .footer__contact { text-align: left; }
-.footer__label { text-transform: uppercase; font-size: .78rem; letter-spacing: .08em; font-weight: 600; color: #fafafa; margin-bottom: 18px; }
+.footer__label { font-family: var(--font-head); text-transform: uppercase; font-size: .78rem; letter-spacing: .08em; font-weight: 600; color: #fafafa; margin-bottom: 18px; }
 .footer__label--spaced { margin-top: 34px; }
 .footer__socials { display: flex; gap: 11px; margin-bottom: 8px; }
 .footer__socials img { width: 40px; height: 40px; }
+/* Hover feedback on the store badges + social icons (they previously had none),
+   mirroring the .store-badge-link treatment on the Trades Thursday hub page. */
+.footer__apps a, .footer__socials a { transition: opacity .15s ease; }
+.footer__apps a:hover, .footer__socials a:hover { opacity: .85; }
 .footer__contact-line { font-size: 1rem; margin-bottom: 16px; }
-.footer__contact-line a { color: var(--footer-link); font-weight: 700; text-decoration: none; }
+.footer__contact-line a { font-family: var(--font-head); color: var(--footer-link); font-weight: 700; text-decoration: none; }
 .footer__contact-line a:hover { text-decoration: underline; }
 .footer__legal { border-top: 1px solid rgba(255,255,255,.1); padding: 16px 0; }
 .footer__legal .container { max-width: 1360px; padding-left: 40px; padding-right: 40px; }
@@ -365,7 +412,6 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     .hero { background-image: url('assets/hero/hero-tablet.webp'); }
     .hero__inner { grid-template-columns: 1fr; gap: 28px; padding-top: 40px; }
     .hero__right { max-width: none; text-align: center; margin: 0 auto; }
-    .hero__headline { font-size: 3rem; }
 
     .positioning__top { grid-template-columns: 1fr; gap: 28px; }
     .positioning__body { max-width: none; }
@@ -393,15 +439,11 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 
     .hero__inner { padding: 32px 20px 40px; }
     .hero__lockup { width: 320px; }
-    .hero__headline { font-size: 2.3rem; }
-    .countdown { gap: 6px; }
-    .countdown__unit { min-width: 40px; }
-    .countdown__num { font-size: 1.9rem; }
-    .countdown__label { font-size: .8rem; letter-spacing: .01em; }
-    .countdown__sep { height: 40px; }
+    /* Countdown: tighten the compact row so all four units fit on phones. */
+    .countdown__unit { padding: 0 clamp(10px, 3.6vw, 18px); }
+    .countdown__num { font-size: clamp(1.75rem, 8.5vw, 2.3rem); }
 
     .positioning, .eligibility, .faq { padding: 44px 0; }
-    .positioning__headline { font-size: 1.8rem; }
 
     .how__steps { flex-direction: column; align-items: center; gap: 10px; }
     .how__arrow { transform: rotate(90deg); padding: 4px 0; }
@@ -411,7 +453,6 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
     .prize { text-align: center; }
 
     .faq__grid { grid-template-columns: 1fr; }
-    .faq__title { font-size: 2rem; }
 
     .cta-banner__inner { flex-direction: column; text-align: center; }
     .cta-banner__copy { flex-direction: column; text-align: center; gap: 10px; }
