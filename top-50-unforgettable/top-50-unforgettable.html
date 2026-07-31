@@ -53,14 +53,15 @@
             <div class="hero__inner">
                 <div class="hero__left">
                     <img class="hero__lockup" src="assets/brand/logo-hero-white.svg" alt="Top Fifty Unforgettable Home Service Brand Names — Powered by Housecall Pro" width="303" height="193">
-                    <div class="countdown" id="countdown" aria-label="Time remaining to submit">
-                        <div class="countdown__unit"><span class="countdown__num" data-days>##</span><span class="countdown__label">Days</span></div>
-                        <span class="countdown__sep" aria-hidden="true"></span>
-                        <div class="countdown__unit"><span class="countdown__num" data-hours>##</span><span class="countdown__label">Hours</span></div>
-                        <span class="countdown__sep" aria-hidden="true"></span>
-                        <div class="countdown__unit"><span class="countdown__num" data-minutes>##</span><span class="countdown__label">Minutes</span></div>
-                        <span class="countdown__sep" aria-hidden="true"></span>
-                        <div class="countdown__unit"><span class="countdown__num" data-seconds>##</span><span class="countdown__label">Seconds</span></div>
+                    <!-- Dividers between units are CSS borders on .countdown__unit, so no
+                         separator elements are needed. Matches the Trades Thursday hub clock. -->
+                    <div class="countdown" id="countdown">
+                        <div class="countdown__clock" role="timer" aria-label="Time remaining to submit">
+                            <div class="countdown__unit"><span class="countdown__num" data-days>##</span><span class="countdown__label">Days</span></div>
+                            <div class="countdown__unit"><span class="countdown__num" data-hours>##</span><span class="countdown__label">Hours</span></div>
+                            <div class="countdown__unit"><span class="countdown__num" data-minutes>##</span><span class="countdown__label">Minutes</span></div>
+                            <div class="countdown__unit"><span class="countdown__num" data-seconds>##</span><span class="countdown__label">Seconds</span></div>
+                        </div>
                     </div>
                     <p class="hero__deadline">SUBMISSIONS ARE OPEN UNTIL AUGUST 16, 2026</p>
                 </div>
